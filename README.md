@@ -1,12 +1,13 @@
 # dnspodddns4winbat
-set /p name=请输入Azure的子域名称:
+<code>set /p name=请输入Azure的子域名称:
 
 rem 修改记录(hk01.******.com)
-curl -X POST https://dnsapi.cn/Record.Modify -d "login_token=******,b2d899**************8afc5d236&format=json&domain_id=86893762&record_id=1106659812&sub_domain=hk01&value=%name%.eastasia.cloudapp.azure.com.&record_type=CNAME&record_line_id=10%%3D0"
+curl -X POST https://dnsapi.cn/Record.Modify -d "login_token=******,b2d899**************8afc5d236&format=json&domain_id=86893762&record_id=1106659812&sub_domain=hk01&value=%name%.eastasia.cloudapp.azure.com.&record_type=CNAME&record_line_id=0"
 
 exit
+</code>
 
-这个bat记得默认线路的%要转义%%
+~~这个bat记得默认线路的%要转义%% ~~
 
 
 #DNSPod 查看域名的 domain_id 和 record_id
@@ -32,5 +33,4 @@ curl 'https://dnsapi.cn/Record.List' -d 'login_token=<your_login_token>&format=j
 获取 sub_domain
 sub_domain 是你要进行动态解析的子域名，其实就是你自己在 控制台 设定的 主机记录，详见获取 record_id 时从官网得到的 json 中的 name 参数。
 ————————————————
-版权声明：本文为CSDN博主「LucienShui」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/xs18952904/article/details/85986741
+
